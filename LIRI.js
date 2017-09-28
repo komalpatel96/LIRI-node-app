@@ -114,12 +114,13 @@ function getMovies(){
     request("http://www.omdbapi.com/?t="+movieTitle+"&y=&plot=short&apikey=40e9cece", function(error, response, body) {
 
     if (!error && response.statusCode === 200) {
-     
+     //console.log(JSON.parse(body));
+     console.log("---------")
       console.log("Movie Title: " + JSON.parse(body).Title);
       console.log("Year: " + JSON.parse(body).Year);
       console.log("IMDB rating: " + JSON.parse(body).imdbRating);
 //ROTTEN TOMATOES RATINGS
-      console.log("Rotten tomatoes rating: " + JSON.parse(body).Ratings.Source);
+      console.log("Rotten tomatoes rating: " + JSON.parse(body).Ratings[1].Value);
 
       console.log("Language: " + JSON.parse(body).Language);
       console.log("Movie Plot: " + JSON.parse(body).Plot);
